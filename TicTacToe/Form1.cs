@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TicTacToe.Game;
 
 namespace TicTacToe
 {
@@ -16,5 +17,13 @@ namespace TicTacToe
         {
             InitializeComponent();
         }
+
+        private void Click_1(object sender, EventArgs e)
+        {
+            Game game = new Game();
+            game.Mark(sender);
+        }
+
+        
     }
 }
