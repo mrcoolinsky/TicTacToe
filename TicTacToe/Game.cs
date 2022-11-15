@@ -12,9 +12,9 @@ namespace TicTacToe
     public class Game 
     {
         CurrentPlayer currentPlayer = CurrentPlayer.Cross;
-        
-        
-        
+        string[] board = new string[9];
+
+
         public void Mark(object sender)
         {
             Button senderButton = (Button)sender;
@@ -23,6 +23,7 @@ namespace TicTacToe
                 senderButton.Text = "X";
                 currentPlayer = CurrentPlayer.Circle;
                 senderButton.Enabled = false;
+                GameBoard(senderButton.Name, senderButton.Text);
                 
             }
             else
@@ -30,10 +31,12 @@ namespace TicTacToe
                 senderButton.Text = "O";
                 currentPlayer = CurrentPlayer.Cross;
                 senderButton.Enabled = false;
+                GameBoard(senderButton.Name, senderButton.Text);
             }
-            
+            CheckWinner();
+
         }
-        public  string changeMarkLabel()
+        public  string ChangeMarkLabel()
         {
             if(currentPlayer == CurrentPlayer.Cross)
             {
@@ -45,47 +48,49 @@ namespace TicTacToe
             }
         }
         
-        public int gameBoard(int key, string mark)
+        private void GameBoard(object sender, string mark)
         {
-            string[,] board = new string[3, 3];
-            switch(key)
+            switch(sender)
             {
-                case 1:
-                    board[0, 0] = mark;
+                case "btn_0_0":
+                    board[0] = mark;
                     break;
-                case 2:
-                    board[0, 1] = mark;
+                case "btn_0_1":
+                    board[1] = mark;
                     break;
-                case 3:
-                    board[0, 2] = mark;
+                case "btn_0_2":
+                    board[2] = mark;
                     break;
-                case 4:
-                    board[1, 0] = mark;
+                case "btn_1_0":
+                    board[3] = mark;
                     break;
-                case 5:
-                    board[1, 1] = mark;
+                case "btn_1_1":
+                    board[4] = mark;
                     break;
-                case 6:
-                    board[1, 2] = mark;
+                case "btn_1_2":
+                    board[5] = mark;
                     break;
-                case 7:
-                    board[2, 0] = mark;
+                case "btn_2_0":
+                    board[6] = mark;
                     break;
-                case 8:
-                    board[2, 1] = mark;
+                case "btn_2_1":
+                    board[7] = mark;
                     break;
-                case 9:
-                    board[2, 2] = mark;
+                case "btn_2_2":
+                    board[8] = mark;
                     break;
-                default:
-
-                    break;
-
             }
-
-
-            return key;
         }
+        public void CheckWinner()
+        {
+            if(board[0] == board[1] && board[1] == board[2])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+            
+        }
+       
+        
     }
 
    

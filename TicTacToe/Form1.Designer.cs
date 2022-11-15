@@ -40,6 +40,7 @@
             this.lbl_currentPlayerTxt = new System.Windows.Forms.Label();
             this.lbl_currentPlayer = new System.Windows.Forms.Label();
             this.btn_reset = new System.Windows.Forms.Button();
+            this.lbl_winner = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_0_0
@@ -50,7 +51,7 @@
             this.btn_0_0.Size = new System.Drawing.Size(133, 121);
             this.btn_0_0.TabIndex = 0;
             this.btn_0_0.UseVisualStyleBackColor = true;
-            this.btn_0_0.Click += new System.EventHandler(this.btn_1_Click);
+            this.btn_0_0.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_0_1
             // 
@@ -60,7 +61,7 @@
             this.btn_0_1.Size = new System.Drawing.Size(133, 121);
             this.btn_0_1.TabIndex = 1;
             this.btn_0_1.UseVisualStyleBackColor = true;
-            this.btn_0_1.Click += new System.EventHandler(this.btn_2_Click);
+            this.btn_0_1.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_0_2
             // 
@@ -70,7 +71,7 @@
             this.btn_0_2.Size = new System.Drawing.Size(133, 121);
             this.btn_0_2.TabIndex = 2;
             this.btn_0_2.UseVisualStyleBackColor = true;
-            this.btn_0_2.Click += new System.EventHandler(this.btn_3_Click);
+            this.btn_0_2.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_1_2
             // 
@@ -80,7 +81,7 @@
             this.btn_1_2.Size = new System.Drawing.Size(133, 121);
             this.btn_1_2.TabIndex = 5;
             this.btn_1_2.UseVisualStyleBackColor = true;
-            this.btn_1_2.Click += new System.EventHandler(this.btn_6_Click);
+            this.btn_1_2.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_1_1
             // 
@@ -90,7 +91,7 @@
             this.btn_1_1.Size = new System.Drawing.Size(133, 121);
             this.btn_1_1.TabIndex = 4;
             this.btn_1_1.UseVisualStyleBackColor = true;
-            this.btn_1_1.Click += new System.EventHandler(this.btn_5_Click);
+            this.btn_1_1.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_1_0
             // 
@@ -100,7 +101,7 @@
             this.btn_1_0.Size = new System.Drawing.Size(133, 121);
             this.btn_1_0.TabIndex = 3;
             this.btn_1_0.UseVisualStyleBackColor = true;
-            this.btn_1_0.Click += new System.EventHandler(this.btn_4_Click);
+            this.btn_1_0.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_2_2
             // 
@@ -110,7 +111,7 @@
             this.btn_2_2.Size = new System.Drawing.Size(133, 121);
             this.btn_2_2.TabIndex = 8;
             this.btn_2_2.UseVisualStyleBackColor = true;
-            this.btn_2_2.Click += new System.EventHandler(this.btn_9_Click);
+            this.btn_2_2.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_2_1
             // 
@@ -120,7 +121,7 @@
             this.btn_2_1.Size = new System.Drawing.Size(133, 121);
             this.btn_2_1.TabIndex = 7;
             this.btn_2_1.UseVisualStyleBackColor = true;
-            this.btn_2_1.Click += new System.EventHandler(this.btn_8_Click);
+            this.btn_2_1.Click += new System.EventHandler(this.btn_Click);
             // 
             // btn_2_0
             // 
@@ -130,7 +131,7 @@
             this.btn_2_0.Size = new System.Drawing.Size(133, 121);
             this.btn_2_0.TabIndex = 6;
             this.btn_2_0.UseVisualStyleBackColor = true;
-            this.btn_2_0.Click += new System.EventHandler(this.btn_7_Click);
+            this.btn_2_0.Click += new System.EventHandler(this.btn_Click);
             // 
             // lbl_currentPlayerTxt
             // 
@@ -161,11 +162,20 @@
             this.btn_reset.Text = "RESET";
             this.btn_reset.UseVisualStyleBackColor = true;
             // 
+            // lbl_winner
+            // 
+            this.lbl_winner.AutoSize = true;
+            this.lbl_winner.Location = new System.Drawing.Point(482, 189);
+            this.lbl_winner.Name = "lbl_winner";
+            this.lbl_winner.Size = new System.Drawing.Size(0, 13);
+            this.lbl_winner.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 450);
+            this.Controls.Add(this.lbl_winner);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.lbl_currentPlayer);
             this.Controls.Add(this.lbl_currentPlayerTxt);
@@ -199,6 +209,7 @@
         private System.Windows.Forms.Label lbl_currentPlayerTxt;
         private System.Windows.Forms.Label lbl_currentPlayer;
         private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.Label lbl_winner;
     }
 }
 
