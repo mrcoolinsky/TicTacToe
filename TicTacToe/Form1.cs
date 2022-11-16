@@ -24,8 +24,6 @@ namespace TicTacToe
         {
             game.Mark(sender);
             lbl_currentPlayer.Text = game.ChangeMarkLabel();
-            
-
 
         }
         

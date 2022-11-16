@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace TicTacToe
     public class Game 
     {
         CurrentPlayer currentPlayer = CurrentPlayer.Cross;
-        string[] board = new string[9];
+        string[] board = new string[9] {"P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9" };
+        int coutner = 0;
 
 
         public void Mark(object sender)
@@ -22,18 +24,23 @@ namespace TicTacToe
             {
                 senderButton.Text = "X";
                 currentPlayer = CurrentPlayer.Circle;
-                senderButton.Enabled = false;
-                GameBoard(senderButton.Name, senderButton.Text);
-                
+
             }
             else
             {
                 senderButton.Text = "O";
                 currentPlayer = CurrentPlayer.Cross;
-                senderButton.Enabled = false;
-                GameBoard(senderButton.Name, senderButton.Text);
             }
-            CheckWinner();
+
+            senderButton.Enabled = false;
+            GameBoard(senderButton.Name, senderButton.Text);
+            coutner++;
+
+            if (coutner>4)
+            {
+               CheckWinner();
+            }
+            
 
         }
         public  string ChangeMarkLabel()
@@ -87,7 +94,36 @@ namespace TicTacToe
             {
                 MessageBox.Show("Unable to save file, try again.");
             }
-            
+            if (board[3] == board[4] && board[4] == board[5])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+            if (board[6] == board[7] && board[7] == board[8])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+
+            if (board[0] == board[3] && board[3] == board[6])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+            if (board[1] == board[4] && board[4] == board[7])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+            if (board[2] == board[5] && board[5] == board[8])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+
+            if (board[0] == board[4] && board[4] == board[8])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
+            if (board[2] == board[4] && board[4] == board[6])
+            {
+                MessageBox.Show("Unable to save file, try again.");
+            }
         }
        
         
