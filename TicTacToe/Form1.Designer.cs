@@ -175,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 450);
+            this.ClientSize = new System.Drawing.Size(722, 399);
             this.Controls.Add(this.lbl_winner);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.lbl_currentPlayer);
@@ -189,6 +189,9 @@
             this.Controls.Add(this.btn_0_2);
             this.Controls.Add(this.btn_0_1);
             this.Controls.Add(this.btn_0_0);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
