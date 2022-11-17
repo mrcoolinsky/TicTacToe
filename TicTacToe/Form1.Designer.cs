@@ -161,6 +161,7 @@
             this.btn_reset.TabIndex = 11;
             this.btn_reset.Text = "RESET";
             this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // lbl_winner
             // 

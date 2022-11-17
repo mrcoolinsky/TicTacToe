@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,18 @@ namespace TicTacToe
     
     public class Game 
     {
-        CurrentPlayer currentPlayer = CurrentPlayer.Cross;
-        string[] board = new string[9] {"P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9" };
-        int coutner = 0;
+        CurrentPlayer currentPlayer { get; set; }
+        public string[] board = new string[9];
+        public int coutner { get; set; }
+        public string playerName { get; set; }
 
+
+        public void NewGame(CurrentPlayer currentPlayer, int coutner)
+        {
+            this.currentPlayer = currentPlayer;
+            this.coutner = coutner;
+            ClearBoard();
+        }
 
         public void Mark(object sender)
         {
@@ -23,12 +32,14 @@ namespace TicTacToe
             if (currentPlayer == CurrentPlayer.Cross)
             {
                 senderButton.Text = "X";
+                playerName = "X";
                 currentPlayer = CurrentPlayer.Circle;
 
             }
             else
             {
                 senderButton.Text = "O";
+                playerName = "O";
                 currentPlayer = CurrentPlayer.Cross;
             }
 
@@ -38,9 +49,12 @@ namespace TicTacToe
 
             if (coutner>4)
             {
-               CheckWinner();
+               if (coutner > 8 && !CheckWinner())
+               {
+                    MessageBox.Show("Remis!");
+               }
+                CheckWinner();
             }
-            
 
         }
         public  string ChangeMarkLabel()
@@ -88,43 +102,54 @@ namespace TicTacToe
                     break;
             }
         }
-        public void CheckWinner()
+        public bool CheckWinner()
         {
-            if(board[0] == board[1] && board[1] == board[2])
+            if (board[0]!= null && board[0] == board[1] && board[1] == board[2])
             {
-                MessageBox.Show("Unable to save file, try again.");
+                return true;
             }
-            if (board[3] == board[4] && board[4] == board[5])
-            {
-                MessageBox.Show("Unable to save file, try again.");
+            if (board[3] != null && board[3] == board[4] && board[4] == board[5])
+            {     
+                return true;
             }
-            if (board[6] == board[7] && board[7] == board[8])
+            if (board[6] != null && board[6] == board[7] && board[7] == board[8])
             {
-                MessageBox.Show("Unable to save file, try again.");
-            }
-
-            if (board[0] == board[3] && board[3] == board[6])
-            {
-                MessageBox.Show("Unable to save file, try again.");
-            }
-            if (board[1] == board[4] && board[4] == board[7])
-            {
-                MessageBox.Show("Unable to save file, try again.");
-            }
-            if (board[2] == board[5] && board[5] == board[8])
-            {
-                MessageBox.Show("Unable to save file, try again.");
+                return true;
             }
 
-            if (board[0] == board[4] && board[4] == board[8])
+            if (board[0] != null && board[0] == board[3] && board[3] == board[6])
             {
-                MessageBox.Show("Unable to save file, try again.");
+                return true;
             }
-            if (board[2] == board[4] && board[4] == board[6])
+            if (board[1] != null && board[1] == board[4] && board[4] == board[7])
             {
-                MessageBox.Show("Unable to save file, try again.");
+                return true;
+            }
+            if (board[2] != null && board[2] == board[5] && board[5] == board[8])
+            {
+                return true;
+            }
+
+            if (board[0] != null && board[0] == board[4] && board[4] == board[8])
+            {
+                return true;
+            }
+            if (board[2] != null && board[2] == board[4] && board[4] == board[6])
+            {
+                return true;
+            }
+            return false;
+        }
+        private void ClearBoard()
+        {
+            for (int i = 0; i< board.Length; i++)
+            {
+                board[i] = null;
             }
         }
+        
+
+        
        
         
     }
